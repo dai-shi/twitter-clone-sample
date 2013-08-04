@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div(ng-controller='MyController')
+    h1= title
+    a(href='/login/facebook', ng-hide='myself._id') Login
+    div(ng-show='myself._id')
+      p What are you doing?
+      form(ng-submit='postNewPost()')
+        input(ng-model='newMessage')
+        input.btn.btn-primary.btn-small(type='submit', value='Send')
+      hr
+      p What others are doing:
+      .well.well-small(ng-repeat='post in posts')
+        div(ng-init='ensureLikecount(post._id)')
+          span {{post.message}}
+          span.pull-right
+            a(href='javascript:void(0)', ng-click='addLikecount(post._id)') Like
+            .badge {{likecount[post._id].count}}
+        div(ng-init='ensureUserinfo(post.owner.user_id)')
+          small {{userinfo[post.owner.user_id].fullname}} &nbsp;
+          small.pull-right {{post.created_time | date:'short'}}
