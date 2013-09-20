@@ -24,7 +24,7 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(SCB.middleware({
-  mongodb_url: process.env.MONGODB_URL,
+  mongodb_url: process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGODB_URL,
   passport_strategy: 'facebook',
   facebook_app_id: process.env.FACEBOOK_APP_ID,
   facebook_app_secret: process.env.FACEBOOK_APP_SECRET,
