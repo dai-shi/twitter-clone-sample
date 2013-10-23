@@ -16,7 +16,7 @@ The running code:
 can be tried at
 [OpenShift server](http://twitterclonesample-nodeangularapp.rhcloud.com/).
 
-changes
+Changes
 -------
 
-* use combined request to avoid many requests for getting likecount for each post.
+* use combined request to avoid many requests for getting likecount for each post [7d68bed](https://github.com/dai-shi/twitter-clone-sample/commit/7d68bed8fe393e4ade0862265e51c111fd953257).
