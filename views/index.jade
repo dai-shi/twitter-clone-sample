@@ -12,7 +12,7 @@ block content
       hr
       p What others are doing:
       .well.well-small(ng-repeat='post in posts')
-        div(ng-init='ensureLikecount(post._id)')
+        div
           span {{post.message}}
           span.pull-right
             a(href='javascript:void(0)', ng-click='addLikecount(post._id)') Like

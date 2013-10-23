@@ -9,6 +9,6 @@
   "dependencies": {
     "express": "3.3.4",
     "jade": "*",
-    "social-cms-backend": "0.0.7"
+    "social-cms-backend": "0.2.3"
   }
 }
