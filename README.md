@@ -20,3 +20,4 @@ Changes
 -------
 
 * use combined request to avoid many requests for getting likecount for each post [7d68bed](https://github.com/dai-shi/twitter-clone-sample/commit/7d68bed8fe393e4ade0862265e51c111fd953257).
+* update to work with express 4 and SCB 0.7.0 [36bfaea](https://github.com/dai-shi/twitter-clone-sample/commit/36bfaeaaccec10abf02eadca1eb342695a5ba61b).
