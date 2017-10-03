@@ -17,12 +17,16 @@ app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000);
 app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
+app.use(require('morgan')('dev'));
+app.use(require('body-parser').json());
+app.use(require('body-parser').urlencoded({ extended: false }));
+app.use(require('method-override')());
+app.use(require('cookie-parser')());
+app.use(require('express-session')({
+    secret: 'your secret here',
+    resave: false,
+    saveUninitialized: true
+}));
 app.use(SCB.middleware({
   mongodb_url: process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGODB_URL,
   passport_strategy: 'facebook',
@@ -35,12 +39,11 @@ app.use(SCB.middleware({
     object_fields: ['owner', 'post_id']
   }
 }));
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+  app.use(require('errorhandler')());
 }
 
 app.get('/', routes.index);
