@@ -11,11 +11,6 @@ is exactly the same as
 [screencast](http://dai-shi.github.io/social-cms-backend/ttyplay.html)
 result.
 
-The running code:
-[20130920_openshift](https://github.com/dai-shi/twitter-clone-sample/tree/20130920_openshift)
-can be tried at
-[OpenShift server](http://twitterclonesample-nodeangularapp.rhcloud.com/).
-
 Changes
 -------
 
